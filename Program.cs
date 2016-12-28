@@ -4,23 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abstractcls
+namespace Interfce
 {
-    public abstract class Repository 
+    interface Iprint
     {
-        public abstract void print();
+        void print1();
     }
 
-    class Program : Repository
+    interface Ifax : Iprint
     {
-        public override void print()
+        void print2();
+    }
+    public class usage : Ifax
+    {
+        public void print2()
         {
-            Console.WriteLine("print abstract");
+            Console.WriteLine("2 copy");
         }
-        static void Main(string[] args)
+        public void print1()
         {
-            Repository R = new Program();
-            R.print();
+            Console.WriteLine("1 copy");
+        }
+
+    }
+    class Program
+    {
+
+    public static void Main(string[] args)
+        {
+            usage user = new usage();
+            user.print1();
+            user.print2();
+
         }
     }
 }
